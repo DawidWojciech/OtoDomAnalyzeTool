@@ -8,6 +8,7 @@ class PropertyCrawler(scrapy.Spider):
     start_urls = settings["crawled_urls"]
 
     def parse(self, response):
+
         for post in response.css('div.offer-item-details'):
             yield {
                 'title': post.css('.offer-item-title  ::text').get(),
