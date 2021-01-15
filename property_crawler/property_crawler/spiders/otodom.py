@@ -1,5 +1,5 @@
 import scrapy
-from utils.utils import get_data_from_json_file
+from utils.utils import get_data_from_json_file, get_coordinates_of_location
 
 
 class PropertyCrawler(scrapy.Spider):
@@ -16,9 +16,10 @@ class PropertyCrawler(scrapy.Spider):
                 'location': post.css('.offer-item-header p::text').get(),
                 'price': post.css('.offer-item-price ::text').get().strip(),
                 'rooms': post.css('.offer-item-rooms ::text').get(),
-                'house_area': post.css('.offer-item-area ::text')[0].get(),
+                'area_1': post.css('.offer-item-area ::text')[0].get(),
                 # 'land_area' : post.css('.offer-item-area ::text')[1].get(),
-                'property_type': post.css('.hidden-xs ::text')[0].get().split()[0]
+                'property_type': post.css('.hidden-xs ::text')[0].get().split()[0],
+                'coordinates': get_coordinates_of_location(post.css('.offer-item-header p::text').get())
             }
         after = response.css('div.after-offers')
         next_page = after.css('.pager-next a::attr(href)').extract()[0]
