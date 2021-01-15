@@ -1,6 +1,7 @@
 {
   "crawled_urls": [
-    "https://www.otodom.pl/sprzedaz/dom/wroclaw/?search%5Bfilter_float_price%3Ato%5D=600000&search%5Bfilter_enum_building_type%5D%5B0%5D=detached&search%5Bregion_id%5D=1&search%5Bsubregion_id%5D=381&search%5Bcity_id%5D=39&search%5Bdist%5D=25&nrAdsPerPage=72"
+    "https://www.otodom.pl/sprzedaz/dom/wroclaw/?search%5Bfilter_float_price%3Ato%5D=600000&search%5Bfilter_enum_building_type%5D%5B0%5D=detached&search%5Bregion_id%5D=1&search%5Bsubregion_id%5D=381&search%5Bcity_id%5D=39&search%5Bdist%5D=25&nrAdsPerPage=72",
+    "https://www.otodom.pl/sprzedaz/dzialka/wroclaw/budowlana/?search%5Bfilter_float_price%3Ato%5D=100000&search%5Border%5D=filter_float_price_per_m%3Aasc&search%5Bregion_id%5D=1&search%5Bsubregion_id%5D=381&search%5Bcity_id%5D=39&search%5Bdist%5D=15&nrAdsPerPage=72"
   ],
   "data_file": "items.json"
 }
