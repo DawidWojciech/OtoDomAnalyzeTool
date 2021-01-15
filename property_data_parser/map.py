@@ -22,7 +22,7 @@ class MapGenerator:
                 marker_cluster = MarkerCluster()
                 for offer in offers:
                     marker_cluster.add_child(self.generate_marker(offer))
-                self.map.add_children(marker_cluster)
+                self.map.add_child(marker_cluster)
 
     def generate_map(self):
         self.map.save(self.map_file)
@@ -36,12 +36,14 @@ class MapGenerator:
         return data
 
     def generate_marker(self, offer):
-        popup_data = f"<b>{offer['title']}</b>\n" \
-                     f"{offer['rooms']}\n" \
-                     f"{offer['area_1']}\n" \
-                     f"{offer['property_type']}\n" \
-                     f"<a href='{offer['link']}'>link</a>"
+        html = f"<b>Typ nieruchomości:</b> {offer['property_type']}<br>" \
+               f"<b>Cena:</b> {offer['price']}<br>" \
+               f"<b>Ilość pokoi:</b> {offer['rooms']}<br>" \
+               f"<b>Powierzchnia domu:</b> {offer['area_1']}<br>" \
+               f"<a href='{offer['link']}' target='_blank'>Link do oferty</a>"
+        iframe = folium.IFrame(html=html, width=300, height=110)
+        popup = folium.Popup(iframe, max_width=400)
         marker = folium.Marker([float(offer["coordinates"]["lat"]), float(offer["coordinates"]["long"])],
-                               popup=popup_data)
+                               popup=popup)
 
         return marker
